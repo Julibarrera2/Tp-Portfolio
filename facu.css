@@ -1,0 +1,150 @@
+/* Reseteo básico y fuentes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    background-color: #f4f4f4;
+    color: #222;
+}
+
+/* Hero (usa <main> en tu HTML) */
+main {
+    min-height: 100vh;
+    background-color: #3aac58; /* verde principal */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* para ::after y .tabs */
+    overflow: visible;
+    font-family: 'JetBrains Mono', monospace; /* la fuente está cargada desde el HTML */
+}
+
+/* Headings: tamaño y espaciado solicitado */
+main h1 {
+    font-size: 50px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0.25rem 0 0.3rem 0;
+    letter-spacing: 0.06em;
+}
+
+main h2 {
+    font-size: 110px;
+    font-weight: 400;
+    color: #000000;
+    margin: 0.1rem 0;
+    letter-spacing: 0.12em;
+    line-height: 0.9; /* reduce gap between lines if the font wraps */
+}
+
+main h3 {
+    font-size: 50px;
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0.3rem 0 0.8rem 0;
+    letter-spacing: 0.04em;
+}
+html, body { overflow-x: hidden; }
+
+.tabs{
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    width: 100%;
+    height: 200px;             /* alto total del “stack” */
+    pointer-events: none;      /* si querés clics, cambiá a auto */
+    overflow: visible;
+}
+
+/* .tab = la “pestañita” (cap) con el texto */
+.tab{
+    position: absolute;
+    bottom: var(--rise);                  /* ⬅ escalonado vertical */
+    left: calc(50% + var(--shift));       /* ⬅ desplazamiento lateral */
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;                         /* alto del cap */
+    padding: 0 32px;
+    border-radius: 20px 20px 0 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    font-size: clamp(16px, 2vw, 20px);
+    white-space: nowrap;
+    color: var(--fg);
+    background: var(--c);                 /* mismo color que la barra */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    z-index: var(--z);
+    pointer-events: auto;
+}
+
+/* Cuerpo ancho (full-bleed) de cada pestaña */
+.tab::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);          /* centra respecto a la pantalla */
+    bottom: 0;                             /* arranca EXACTO en 0 */
+    width: 100vw;                          /* de borde a borde */
+    height: var(--bar-h);                  /* alto del cuerpo */
+    background: var(--c);
+    border-radius: 14px 14px 0 0;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.14);
+    z-index: -1;                           /* detrás del cap */
+    pointer-events: none;
+}
+
+/* ===== Config por pestaña ===== */
+/* Gris (base, a la izquierda) */
+.tab.sobre-mi{
+    --c: #d9d9d9;
+    --fg: #222;
+    --shift: -28vw;
+    --rise: 0px;          /* ⬅ cambialo para más/menos escalón */
+    --bar-h: 120px;
+    --z: 1;
+}
+
+/* Violeta (intermedia, a la derecha) */
+.tab.a-futuro{
+    --c: #8c4ade;
+    --fg: #fff;
+    --shift: 22vw;
+    --rise: 48px;         /* ⬅ escalón medio (antes 32px) */
+    --bar-h: 100px;
+    --z: 2;
+}
+
+/* Roja (protagonista, centrada) */
+.tab.proyectos{
+    --c: #965353;
+    --fg: #fff;
+    --shift: 0vw;
+    --rise: 96px;         /* ⬅ escalón alto (antes 64px) */
+    --bar-h: 80px;
+    --z: 3;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 1100px){
+    .tabs{ height: 190px; }
+    .tab.sobre-mi  { --shift: -22vw; --bar-h: 110px; }
+    .tab.a-futuro  { --shift:  16vw; --bar-h: 92px;  --rise: 40px; }
+    .tab.proyectos { --bar-h: 76px;  --rise: 80px; }
+}
+
+@media (max-width: 768px){
+    .tabs{ height: 160px; }
+    .tab{ height: 56px; padding: 0 22px; font-size: 16px; }
+    .tab.sobre-mi  { --shift: -12vw; --rise: 0;  --bar-h: 96px; }
+    .tab.a-futuro  { --shift:  10vw; --rise: 28px; --bar-h: 84px; }
+    .tab.proyectos { --shift:   0vw;  --rise: 56px; --bar-h: 72px; }
+}
