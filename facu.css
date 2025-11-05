@@ -1,8 +1,8 @@
 /* Reseteo básico y fuentes */
 * {
-    margin: 0.1rem 0;
-    letter-spacing: 0.12em;
-    line-height: 0.9;
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
 }
 
 html, body { overflow-x: hidden; }
@@ -63,10 +63,11 @@ html, body { overflow-x: hidden; }
 /* .tab = la “pestañita” (cap) con el texto */
 
 .tab{
-
     --shift: 0vw;
-    --body-shift: 0vw;
-    --bar-w: 100vw;
+    --rise: 0px;
+
+    /*--body-shift: 0vw;*/
+    /*--bar-w: 100vw;*/
 
     position: absolute;
     bottom: var(--rise);                  /* ⬅ escalonado vertical */
@@ -74,25 +75,20 @@ html, body { overflow-x: hidden; }
     transform: translateX(-50%);
     display: flex;
     align-items: center;
-
     justify-content: flex-start;
-    /*justify-content: center;*/
-
     height: 64px; 
     
-    padding: 0 clamp(28px, 4vw, 60px);
+    padding: 0 32px;
+    /*padding: 0 clamp(28px, 4vw, 60px);*/
+    
     min-width: 180px;
-    /*padding: 0 32px;*/
-
     border-radius: 20px 20px 0 0;
     font-family: 'JetBrains Mono', monospace;
     font-weight: 400;
     font-size: clamp(16px, 2vw, 20px);
     white-space: nowrap;
-
     text-transform: none;
     letter-spacing: 0.05em;
-
     color: var(--fg);
     background: var(--c);                 /* mismo color que la barra */
     box-shadow: 0 6px 16px rgba(0,0,0,0.12);
@@ -104,17 +100,13 @@ html, body { overflow-x: hidden; }
 .tab::after{
     content: "";
     position: absolute;
-
-    /*left: 50%;*/
     left: calc(50% + var(--body-shift));
-
     transform: translateX(-50%);          /* centra respecto a la pantalla */
     bottom: 0; 
+    width: 100vw;
     
-    width: var(--bar-w);
-    max-width: 140vw;
-    /*width: 100vw;*/  
-    
+    /*max-width: 140vw;*/
+
     height: var(--bar-h);                 
     background: var(--c);
     border-radius: 14px 14px 0 0;
@@ -128,53 +120,41 @@ html, body { overflow-x: hidden; }
 .tab.sobre-mi{
     --c: #d9d9d9;
     --fg: #222;
-
     --shift: -30vw;
     --body-shift: -18vw;
     --bar-w: 122vw;
-    /*--shift: -28vw;*/
-
     --rise: 0px;          /* ⬅ cambialo para más/menos escalón */
     --bar-h: 120px;
     --z: 1;
-
+    text-align: left;
+    justify-content: flex-start;
     text-align: left;
 }
 
 /* Violeta (intermedia, a la derecha) */
 .tab.a-futuro{
     --c: #8c4ade;
-    --fg: #fff;
-
-    /*--shift: 22vw;
-    --rise: 48px;*/  
+    --fg: #fff; 
     --shift: 24vw;
     --body-shift: 32vw;
     --bar-w: 58vw;
     --rise: 50px; 
-
     --bar-h: 100px;
     --z: 2;
-
     justify-content: flex-end;
     text-align: right;
 }
 
 /* Roja (protagonista, centrada) */
 .tab.proyectos{
-    --c: #965353;
+    --c: #9C7E7E;
     --fg: #fff;
     --shift: 0vw;
-    
-    /*--rise: 96px;
-    --bar-h: 80px;*/
     --body-shift: 2vw;
     --bar-w: 70vw;
     --rise: 92px;
     --bar-h: 84px;
-    
     --z: 3;
-
     justify-content: center;
     text-align: center;
 }
@@ -182,24 +162,14 @@ html, body { overflow-x: hidden; }
 /* ===== Responsivo ===== */
 @media (max-width: 1100px){
     .tabs{ height: 190px; }
-    
-    /*.tab.sobre-mi  { --shift: -22vw; --bar-h: 110px; }
-    .tab.a-futuro  { --shift:  16vw; --bar-h: 92px;  --rise: 40px; }
-    .tab.proyectos { --bar-h: 76px;  --rise: 80px; }*/
-
     .tab{ min-width: 160px; }
     .tab.sobre-mi  { --shift: -22vw; --body-shift: -14vw; --bar-w: 118vw; --bar-h: 110px; }
     .tab.a-futuro  { --shift:  18vw; --body-shift: 26vw;  --bar-w: 62vw; --bar-h: 92px;  --rise: 40px; }
-    .tab.proyectos { --body-shift: 2vw; --bar-w: 74vw; --bar-h: 78px;  --rise: 78px; }
+    .tab.proyectos { --bar-h: 78px;  --rise: 78px; }
 }
 
 @media (max-width: 768px){
     .tabs{ height: 160px; }
-
-    /*.tab{ height: 56px; padding: 0 22px; font-size: 16px; }
-    .tab.sobre-mi  { --shift: -12vw; --rise: 0;  --bar-h: 96px; }
-    .tab.a-futuro  { --shift:  10vw; --rise: 28px; --bar-h: 84px; }
-    .tab.proyectos { --shift:   0vw;  --rise: 56px; --bar-h: 72px; }*/
     .tab{ height: 56px; padding: 0 22px; font-size: 16px; min-width: 140px; }
     .tab.sobre-mi  { --shift: -12vw; --body-shift: -8vw;  --bar-w: 110vw; --rise: 0;  --bar-h: 96px; }
     .tab.a-futuro  { --shift:  10vw; --body-shift: 18vw; --bar-w: 68vw; --rise: 28px; --bar-h: 84px; }
