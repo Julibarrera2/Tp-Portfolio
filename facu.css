@@ -51,127 +51,106 @@ html, body { overflow-x: hidden; }
 
 .tabs{
     position: absolute;
-    bottom: 0;
-    left: 0; right: 0;
+    inset: auto 0 0 0;
     width: 100%;
-    height: 200px;             /* alto total del “stack” */
-    pointer-events: none;      /* si querés clics, cambiá a auto */
+    height: 200px;
+    pointer-events: none;
     overflow: visible;
 }
 
-
-/* .tab = la “pestañita” (cap) con el texto */
-
+/* Cada tab: contenedor posicionado + inyección del SVG */
 .tab{
     --shift: 0vw;
     --rise: 0px;
-
-    /*--body-shift: 0vw;*/
-    /*--bar-w: 100vw;*/
+    --bar-h: 100px;
+    --z: 10;
+    --c: #d9d9d9;
+    --fg: #222;
 
     position: absolute;
-    bottom: var(--rise);                  /* ⬅ escalonado vertical */
-    left: calc(50% + var(--shift));       /* ⬅ desplazamiento lateral */
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    height: 64px; 
-    
-    padding: 0 32px;
-    /*padding: 0 clamp(28px, 4vw, 60px);*/
-    
-    min-width: 180px;
-    border-radius: 20px 20px 0 0;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 400;
-    font-size: clamp(16px, 2vw, 20px);
-    white-space: nowrap;
-    text-transform: none;
-    letter-spacing: 0.05em;
-    color: var(--fg);
-    background: var(--c);                 /* mismo color que la barra */
-    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    z-index: var(--z);
-    pointer-events: auto;
-}
+    left: 50%;
+    transform: translateX(calc(-50% + var(--shift)));
+    bottom: var(--rise);
 
-/* Cuerpo ancho (full-bleed) de cada pestaña */
-.tab::after{
-    content: "";
-    position: absolute;
-    left: calc(50% + var(--body-shift));
-    transform: translateX(-50%);          /* centra respecto a la pantalla */
-    bottom: 0; 
+    /* El contenedor abarca todo el ancho para que la barra llegue de borde a borde */
     width: 100vw;
-    
-    /*max-width: 140vw;*/
+    height: 200px;
 
-    height: var(--bar-h);                 
-    background: var(--c);
-    border-radius: 14px 14px 0 0;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.14);
-    z-index: -1;                           /* detrás del cap */
-    pointer-events: none;
+    pointer-events: auto;
+    z-index: var(--z);
 }
 
-/* ===== Config por pestaña ===== */
-/* Gris (base, a la izquierda) */
+/* El SVG inyectado ocupa todo el contenedor */
+.tab > svg{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Fallback de color: si tu SVG no trae .cap/.body/.paint, pintamos todo */
+.tab svg * { fill: var(--c); }
+
+/* Si tu SVG SÍ trae estas clases, se respeta este target más específico */
+.tab svg .paint,
+.tab svg .body,
+.tab svg .cap {
+    fill: var(--c);
+}
+
+/* El rótulo va “en el capuchón” */
+.tab .label{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: calc(var(--bar-h) + 22px);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--fg);
+    white-space: nowrap;
+    pointer-events: none;
+    text-align: center;
+}
+
+/* Config de cada pestaña */
 .tab.sobre-mi{
     --c: #d9d9d9;
     --fg: #222;
     --shift: -30vw;
-    --body-shift: -18vw;
-    --bar-w: 122vw;
-    --rise: 0px;          /* ⬅ cambialo para más/menos escalón */
+    --rise: 0px;
     --bar-h: 120px;
     --z: 1;
-    text-align: left;
-    justify-content: flex-start;
-    text-align: left;
 }
 
-/* Violeta (intermedia, a la derecha) */
 .tab.a-futuro{
     --c: #8c4ade;
-    --fg: #fff; 
+    --fg: #fff;
     --shift: 24vw;
-    --body-shift: 32vw;
-    --bar-w: 58vw;
-    --rise: 50px; 
+    --rise: 50px;
     --bar-h: 100px;
     --z: 2;
-    justify-content: flex-end;
-    text-align: right;
 }
 
-/* Roja (protagonista, centrada) */
 .tab.proyectos{
     --c: #9C7E7E;
     --fg: #fff;
     --shift: 0vw;
-    --body-shift: 2vw;
-    --bar-w: 70vw;
     --rise: 92px;
     --bar-h: 84px;
     --z: 3;
-    justify-content: center;
-    text-align: center;
 }
 
-/* ===== Responsivo ===== */
+/* Responsivo */
 @media (max-width: 1100px){
     .tabs{ height: 190px; }
-    .tab{ min-width: 160px; }
-    .tab.sobre-mi  { --shift: -22vw; --body-shift: -14vw; --bar-w: 118vw; --bar-h: 110px; }
-    .tab.a-futuro  { --shift:  18vw; --body-shift: 26vw;  --bar-w: 62vw; --bar-h: 92px;  --rise: 40px; }
+    .tab.sobre-mi  { --shift: -22vw; --bar-h: 110px; }
+    .tab.a-futuro  { --shift:  18vw; --bar-h: 92px;  --rise: 40px; }
     .tab.proyectos { --bar-h: 78px;  --rise: 78px; }
 }
-
 @media (max-width: 768px){
     .tabs{ height: 160px; }
-    .tab{ height: 56px; padding: 0 22px; font-size: 16px; min-width: 140px; }
-    .tab.sobre-mi  { --shift: -12vw; --body-shift: -8vw;  --bar-w: 110vw; --rise: 0;  --bar-h: 96px; }
-    .tab.a-futuro  { --shift:  10vw; --body-shift: 18vw; --bar-w: 68vw; --rise: 28px; --bar-h: 84px; }
-    .tab.proyectos { --shift:   0vw;  --body-shift: 4vw;  --bar-w: 82vw; --rise: 56px; --bar-h: 72px; }
+    .tab{ height: 160px; }
+    .tab .label{ font-size: 16px; }
+    .tab.sobre-mi  { --shift: -12vw; --rise: 0;  --bar-h: 96px; }
+    .tab.a-futuro  { --shift:  10vw; --rise: 28px; --bar-h: 84px; }
+    .tab.proyectos { --shift:   0vw;  --rise: 56px; --bar-h: 72px; }
 }
