@@ -1,0 +1,86 @@
+.sobre-mi-page {
+    min-height: 100vh;
+    background: url('SVG facu/fondo\ sobre\ mi.svg') no-repeat center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    color: #333;
+    padding: 2rem;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+    max-width: 1600px;
+    width: 100%;
+    margin-top: 100px; /* Ajusta según la altura del capuchón del SVG */
+}
+
+.col {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+/* Estilos específicos para elementos */
+.photo-container img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+}
+
+.photo-caption {
+    display: block;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.lang-bar {
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #3aac58;
+    width: var(--level);
+    border-radius: 10px;
+}
+
+.lang-bar[data-level="100"] { --level: 100%; }
+.lang-bar[data-level="85"] { --level: 85%; }
+
+.contact-icons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.icon-link img {
+    width: 32px;
+    height: 32px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+p, li {
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+section {
+    margin-bottom: 2rem;
+}
