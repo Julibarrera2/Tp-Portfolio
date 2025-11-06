@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-html, body { overflow-x: hidden; }
+html, body { overflow-x: visible; }
 
 
 /* Hero (usa <main> en tu HTML) */
@@ -53,7 +53,7 @@ html, body { overflow-x: hidden; }
     position: absolute;
     inset: auto 0 0 0;
     width: 100%;
-    height: 200px;
+    height: 160px;
     pointer-events: none;
     overflow: visible;
 }
@@ -66,18 +66,21 @@ html, body { overflow-x: hidden; }
     --z: 10;
     --c: #d9d9d9;
     --fg: #222;
+    --tab-w: 360px; /* <-- ancho por defecto, puedes cambiarlo */
+    --gap: 40px; /* espacio entre centros (ajustalo si querés más separación) */
+    --left-scale: 1;    /* 1 = sin agrandar; 1.2 = agranda 20% el lado izquierdo */
+    --left-clip: 0.5;   /* proporción (0..1) que define cuánto del ancho se considera "lado izquierdo" */
 
     position: absolute;
     left: 50%;
     transform: translateX(calc(-50% + var(--shift)));
     bottom: var(--rise);
-
-    /* El contenedor abarca todo el ancho para que la barra llegue de borde a borde */
-    width: 100vw;
-    height: 200px;
+    width: var(--tab-w); /* ahora controlado por --tab-w */
+    height: calc(var(--bar-h) + 64px);
 
     pointer-events: auto;
     z-index: var(--z);
+    overflow: visible;
 }
 
 /* El SVG inyectado ocupa todo el contenedor */
@@ -101,56 +104,127 @@ html, body { overflow-x: hidden; }
 .tab .label{
     position: absolute;
     left: 50%;
-    transform: translateX(-50%);
-    bottom: calc(var(--bar-h) + 22px);
+    transform: translateX(var(--label-x, -50%));
+    bottom: var(--label-bottom, calc(var(--bar-h) + 22px)); /* permite override por tab */
+    /* ancho limitado al interior del capuchón (evita que el texto salga) */
+    width: calc(var(--tab-w) - 32px);
+    max-width: calc(var(--tab-w) - 32px);
+    padding: 0 8px;
     font-family: 'JetBrains Mono', monospace;
-    font-size: clamp(16px, 2vw, 20px);
+    /* tamaño más ajustado para que entre mejor en el cap */
+    font-size: clamp(20px, 2vw, 32px); /* más grande */
+    line-height: 1;
+    letter-spacing: 0.02em;
     color: var(--fg);
-    white-space: nowrap;
+    white-space: nowrap;       /* evita salto de línea */
+    overflow: hidden;
+    text-overflow: ellipsis;   /* recorta si sobra */
     pointer-events: none;
     text-align: center;
+    z-index: calc(var(--z) + 1); /* asegurar que el texto quede encima del SVG */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Config de cada pestaña */
 .tab.sobre-mi{
     --c: #d9d9d9;
-    --fg: #222;
-    --shift: -30vw;
+    /* el shift ahora escala con el ancho: ajustá el multiplicador (0.6) si querés más/menos separación */
+    --shift: calc(-1 * (var(--tab-w) * 0.001));
     --rise: 0px;
-    --bar-h: 120px;
-    --z: 1;
+    --bar-h: 53px;
+    --z: 3;
+    --tab-w: 1365px; /* ancho específico para esta pestaña */
+    --label-bottom: 80px; /* ajusta este valor para mover el label de "Sobre mí" */
+    --label-x: -82%; /* mueve el label más a la izquierda */
 }
 
 .tab.a-futuro{
     --c: #8c4ade;
-    --fg: #fff;
-    --shift: 24vw;
-    --rise: 50px;
-    --bar-h: 100px;
+    /* idem, desplazamiento a la derecha escalable */
+    --shift: calc(var(--tab-w) * -0.001);
+    --rise: 30px;
+    --bar-h: 53px;
     --z: 2;
+    --tab-w: 1365px; /* ancho específico para esta pestaña */
+    --label-bottom: 80px; /* ajusta este valor para mover el label de "A futuro" */
+    --label-x: -26%; /* mueve el label más a la derecha (menos negativo) */
 }
 
 .tab.proyectos{
     --c: #9C7E7E;
-    --fg: #fff;
     --shift: 0vw;
-    --rise: 92px;
-    --bar-h: 84px;
-    --z: 3;
+    --rise: 60px;
+    --bar-h: 50px;
+    --z: 1;
+    --tab-w: 1365px; /* ancho específico para esta pestaña (la más ancha) */
+    --label-bottom: 75px; /* ajusta este valor para mover el label de "Proyectos" */
+    --label-x: -59%; /* mueve el label aún más a la izquierda */
 }
 
 /* Responsivo */
 @media (max-width: 1100px){
-    .tabs{ height: 190px; }
-    .tab.sobre-mi  { --shift: -22vw; --bar-h: 110px; }
-    .tab.a-futuro  { --shift:  18vw; --bar-h: 92px;  --rise: 40px; }
-    .tab.proyectos { --bar-h: 78px;  --rise: 78px; }
+    .tab { --tab-w: 300px;}
+    .tab.sobre-mi { --shift: -320px; --tab-w: 300px; }
+    .tab.a-futuro { --shift: 320px; --rise: 30px; --tab-w: 300px; }
+    .tab.proyectos { --rise: 60px; --tab-w: 300px; }
 }
 @media (max-width: 768px){
-    .tabs{ height: 160px; }
-    .tab{ height: 160px; }
-    .tab .label{ font-size: 16px; }
-    .tab.sobre-mi  { --shift: -12vw; --rise: 0;  --bar-h: 96px; }
-    .tab.a-futuro  { --shift:  10vw; --rise: 28px; --bar-h: 84px; }
-    .tab.proyectos { --shift:   0vw;  --rise: 56px; --bar-h: 72px; }
+    .tab {
+        --tab-w: 240px;
+    }
+    .tab.sobre-mi { --shift: -260px; --tab-w: 240px; }
+    .tab.a-futuro { --shift: 260px; --rise: 25px; --tab-w: 240px; }
+    .tab.proyectos { --rise: 50px; --tab-w: 240px; }
 }
+@media (max-width: 600px){
+    .tab {
+        --tab-w: 200px;
+    }
+    .tab.sobre-mi { --shift: -210px; --tab-w: 200px; }
+    .tab.a-futuro { --shift: 210px; --rise: 20px; --tab-w: 200px; }
+    .tab.proyectos { --rise: 40px; --tab-w: 200px; }
+}
+
+/* estilos para las capas generadas por el loader */
+.tab svg .left-layer,
+.tab svg .right-layer {
+	/* asegúrate de que las transformaciones CSS usen el bounding box del SVG */
+	transform-box: fill-box;
+	will-change: transform;
+}
+
+.tab svg .left-layer {
+	/* escala horizontal aplicable via variable --left-scale */
+	transform-origin: left center;
+	transform: scaleX(var(--left-scale));
+	pointer-events: none;
+}
+
+.tab svg .right-layer {
+	transform-origin: right center;
+	pointer-events: none;
+}
+
+/* estilos para grupos definidos dentro del propio SVG (si editás el SVG manualmente) */
+.tab svg g.left,
+.tab svg g.right {
+        transform-box: fill-box;
+        will-change: transform;
+}
+
+.tab svg g.left {
+        transform-origin: left center;
+        /* la variable --left-scale ya existe en .tab; por defecto 1 */
+        transform: scaleX(var(--left-scale));
+        pointer-events: none;
+}
+
+.tab svg g.right {
+        transform-origin: right center;
+        pointer-events: none;
+}
+
+ /* Ejemplo de ajuste por pestaña */
+ /* .tab.a-futuro { --left-scale: 1.12; --left-clip: 0.45; } */
