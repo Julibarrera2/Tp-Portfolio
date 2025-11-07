@@ -1,12 +1,35 @@
 .sobre-mi-page {
+    /* variables para controlar tamaño y posición del SVG de fondo */
+    --svg-width: 1343px;   /* ancho del SVG (cambiar según necesites) */
+    --svg-height: 768px;   /* alto del SVG (cambiar según necesites) */
+    --svg-left: -2px;       /* posición X del SVG respecto al borde izquierdo del viewport */
+    --svg-top: -3px;   
+    --svg-bottom: auto;
+
+    /* variables para posicionar y escalar el título "Sobre mi" */
+    --label-left: 180px;
+    --label-right: auto;
+    --label-top: 12px;
+    --label-bottom: auto;
+    --label-size: 29px;
+
     min-height: 100vh;
-    background: url('SVG facu/fondo\ sobre\ mi.svg') no-repeat center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("SVG facu/fondo sobre mi.svg");
+    background-repeat: no-repeat;
+    /* usa las variables para tamaño y posición */
+    background-size: var(--svg-width) var(--svg-height);
+    background-position: var(--svg-left) var(--svg-top);
+    background-color: transparent;   /* fallback si el SVG no carga */
+    /* evitar padding arriba que empuje el viewport: permitimos un poco de scroll */
+    display: block;
+    padding: 0 0rem 0rem 0;
     font-family: 'JetBrains Mono', monospace;
     color: #333;
-    padding: 2rem;
+
+    /* asegurar contexto para posicionamiento absoluto */
+    position: relative;
 }
 
 .content-wrapper {
@@ -15,13 +38,13 @@
     gap: 2rem;
     max-width: 1600px;
     width: 100%;
-    margin-top: 100px; /* Ajusta según la altura del capuchón del SVG */
 }
 
 .col {
     background: rgba(255, 255, 255, 0.1);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 8px;
+    width: 100%;  /* asegurar que use todo el ancho disponible */
 }
 
 /* Estilos específicos para elementos */
@@ -83,4 +106,123 @@ p, li {
 
 section {
     margin-bottom: 2rem;
+}
+
+/* Responsivo: en pantallas más pequeñas usamos cover para que se adapte mejor */
+@media (max-width: 1365px) {
+    .sobre-mi-page {
+        background-size: cover;
+        background-position: center top;
+    }
+}
+@media (max-width: 768px) {
+    .sobre-mi-page {
+        background-position: center top;
+        padding: 1rem;
+    }
+}
+
+.page-label {
+	position: absolute;
+	left: var(--label-left, auto);
+	right: var(--label-right, auto);
+	top: var(--label-top, auto);
+	bottom: var(--label-bottom, auto);
+
+	font-family: 'JetBrains Mono', monospace; /* misma fuente que el resto */
+	font-size: var(--label-size);
+	font-weight: 400;
+	color: #222;
+	pointer-events: none;
+	z-index: 10;
+	white-space: nowrap;
+}
+
+/* -------------------------
+    Control de anchura de texto
+    Cada sección puede definir --text-max-width para alargar/achicar las líneas
+   Valores por defecto (puedes cambiarlos) */
+.intro,
+.experience,
+.interests,
+.education,
+.languages,
+.contact {
+	/* si no defines la variable en la sección, toma este valor por defecto */
+	--text-max-width: none;
+	/* padding interno para que se lea cómodo cuando se estire */
+	box-sizing: border-box;
+}
+
+/* Aplicar la variable al contenido textual (p, ul, .lang-item, etc.) */
+.intro,
+.experience,
+.interests,
+.education,
+.languages,
+.contact {
+	max-width: var(--text-max-width);
+}
+
+/* Si quieres aplicar sólo a los párrafos y listas dentro de la sección: */
+.intro p,
+.experience p,
+.interests p,
+.education ul,
+.languages .lang-item,
+.contact p {
+	max-width: inherit; /* usa el max-width del contenedor de la sección */
+}
+
+/* Ejemplos de valores por sección: ajustalos a gusto */
+/* centro: texto más ancho (líneas largas) */
+.center-col .intro    { --text-max-width: 900px; }
+.center-col .experience { --text-max-width: 760px; }
+
+/* izquierda: más estrecho */
+.left-col .interests  { --text-max-width: 320px; }
+
+/* derecha: listado relativamente ancho */
+.right-col .education { --text-max-width: 360px; }
+.right-col .languages { --text-max-width: 360px; }
+.right-col .contact   { --text-max-width: 360px; }
+
+/* Responsivo: reducir valores en pantallas pequeñas */
+@media (max-width: 768px) {
+	.center-col .intro,
+	.center-col .experience { --text-max-width: 100%; }
+	.left-col .interests,
+	.right-col .education,
+	.right-col .languages,
+	.right-col .contact { --text-max-width: 100%; }
+}
+
+/* Ajustar el contenedor para que permita expansión */
+.col {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    width: 100%;  /* asegurar que use todo el ancho disponible */
+}
+
+/* Hacer que el contenedor central use todo su espacio */
+.center-col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Ajustar la sección intro para que use todo el ancho */
+.center-col .intro {
+    --text-max-width: 1150px; /* prueba con un valor más grande */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.center-col .intro h2,
+.center-col .intro p {
+    width: 100%;
+    text-align: left;
+    max-width: var(--text-max-width);
 }
