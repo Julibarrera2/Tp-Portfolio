@@ -1,0 +1,154 @@
+.sobre-mi-page {
+  /* variables para controlar tamaño y posición del SVG de fondo */
+    --svg-width: 1343px;
+    --svg-height: 768px;
+    --svg-left: calc(50% - var(--svg-width)/2);
+    --svg-top: 0;
+
+    min-height: 100vh;
+    width: 100vw;
+    background-image: url("SVG facu/fondo sobre mi.svg");
+    background-repeat: no-repeat;
+    background-size: var(--svg-width) var(--svg-height);
+    background-position: var(--svg-left) var(--svg-top);
+    background-color: #e3e3e3;
+    font-family: 'JetBrains Mono', monospace;
+    color: #333;
+    position: relative;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.page-label {
+    position: absolute;
+    left: 180px;
+    top: 12px;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #222;
+    pointer-events: none;
+    z-index: 10;
+    white-space: nowrap;
+}
+.center-col .languages {
+    --text-max-width: 760px;
+    max-width: var(--text-max-width);
+}
+
+.center-col .languages .lang-item {
+    max-width: inherit;
+}
+
+.content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+    max-width: 1600px;
+    margin: 8rem auto 0;
+}
+
+.col {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.left-col .photo-container img {
+    width: 100%;
+    max-width: 300px;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.photo-caption {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+p, li {
+    margin-bottom: 0.75rem;
+    line-height: 1.45;
+}
+
+ul {
+    padding-left: 1.2rem;
+    margin: 0;
+}
+
+.lang-item {
+    margin-bottom: 1rem;
+}
+
+.lang-bar {
+    width: 100%;
+    height: 15px;
+    background: #ddd;
+    border-radius: 7.5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.lang-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #333;
+    width: 0;
+    transition: width 0.5s ease-out;
+}
+
+.lang-bar[data-level="100"]::after { width: 100%; }
+.lang-bar[data-level="90"]::after { width: 90%; }
+
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.icon-link img {
+    width: 40px;
+    height: 40px;
+}
+
+@media (max-width: 1365px) {
+    .sobre-mi-page {
+        background-size: cover;
+        background-position: center top;
+    }
+    .content-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .page-label {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 12px;
+        font-size: 1.8rem;
+    }
+
+    .col {
+        padding: 1.5rem;
+    }
+}

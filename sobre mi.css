@@ -16,7 +16,7 @@
     min-height: 100vh;
     width: 100vw;
     height: 100vh;
-    background-image: url("SVG facu/fondo sobre mi.svg");
+    background-image: url("SVG-facu\fondo-sobre-mi.svg");
     background-repeat: no-repeat;
 
     background-size: var(--svg-width) var(--svg-height);
