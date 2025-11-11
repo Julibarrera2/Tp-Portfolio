@@ -1,0 +1,26 @@
+.a-futuro-page {
+  /* variables para controlar tamaño y posición del SVG de fondo */
+    --svg-width: 1343px;
+    --svg-left: -2px;
+    --svg-top: -3px;
+    --svg-height: 760px;
+
+    width: 100vw;
+    height: var(--svg-height);
+    background-image: url("SVG-facu/fondo-a-futuro.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 1343px var(--svg-height);
+    background-color: rgb(17, 16, 16);
+    
+    font-family: 'JetBrains Mono', monospace;
+    color: #333;
+    position: relative;
+    padding: 2rem;
+    box-sizing: border-box;
+
+    max-height: 800px;
+    min-height: 100vh; /* asegura que siempre ocupe el alto completo */
+    overflow: hidden;
+
+}

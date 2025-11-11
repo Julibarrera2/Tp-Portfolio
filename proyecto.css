@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: 'JetBrains Mono', monospace;
+    background-color: #1e1e1e;
+    overflow-x: hidden;
+}
+
+
+.proyectos-page {
+  /* variables para controlar tamaño y posición del SVG de fondo */
+    --svg-width: 1343px;
+    --svg-left: -2px;
+    --svg-top: -3px;
+    --svg-height: 760px;
+
+    width: 100vw;
+    height: var(--svg-height);
+    background-image: url("SVG-facu/fondo-proyectos.svg");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 1343px var(--svg-height);
+    background-color: rgb(17, 16, 16);
+    
+    font-family: 'JetBrains Mono', monospace;
+    color: #333;
+    position: relative;
+    padding: 2rem;
+    box-sizing: border-box;
+
+    max-height: 800px;
+    min-height: 100vh; /* asegura que siempre ocupe el alto completo */
+    overflow: hidden;
+
+}
+
+.page-label {
+    position: absolute;
+    top: 12px;
+    left: 555px;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    font-weight: bold;
+    color: #030303;
+    background: transparent;
+    z-index: 10;
+}
+
+.proyectos-wrapper {
+    max-width: 1160px;
+    margin: 75px 0 0 6rem;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.proyecto h2 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+.proyecto p {
+    font-size: 18px;
+    margin-bottom: 3px;
+    line-height: 1.6;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .page-label {
+        font-size: 1.5rem;
+    }
+
+    .proyecto h2 {
+        font-size: 1.2rem;
+    }
+
+    .proyecto p {
+        font-size: 0.95rem;
+    }
+
+    .proyectos-wrapper {
+        padding: 0 1rem;
+    }
+}
