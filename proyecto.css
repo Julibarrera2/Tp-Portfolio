@@ -24,7 +24,7 @@ html, body {
     height: var(--svg-height);
     background-image: url("SVG-facu/fondo-proyectos.svg");
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: 2px -4px;
     background-size: 1343px var(--svg-height);
     background-color: rgb(17, 16, 16);
     
