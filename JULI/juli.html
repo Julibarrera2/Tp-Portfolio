@@ -1,101 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Julia Barrera</title>
-    <link rel="stylesheet" href="juli.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV de Julia Barrera</title>
+    <link rel="stylesheet" href="julia.css" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Comic+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="header-left">
-                <h1>Julia Barrera</h1>
-                <h2>Aspirante a Ingeniera Electronica</h2>
-                <div class="location">CABA, Argentina</div>
-            </div>
-            <div class="header-right">
-                <div class="contact-info">
-                    <p><span class="icon">📞</span> +54 9 11 6982-5863</p>
-                    <p><span class="icon">📧</span> barrerajulia490@gmail.com</p>
-                    <div class="social-links">
-                        <a href="https://github.com/JuliBarrera2">github.com/JuliBarrera2</a>
-                        <a href="https://linkedin.com/in/julia-barrera-642959276">linkedin.com/in/julia-barrera-642959276</a>
-                    </div>
-                </div>
+
+    <main class="cv-julia">
+
+    <!-- Header con foto y nombre -->
+        <header class="header">
+        <div class="foto">
+            <img src="SVG-juli/" alt="Foto de Julia Barrera">
+            <span>*FOTO*</span>
+        </div>
+        <div class="info-header">
+            <h1>Julia Barrera</h1>
+            <h2>Aspirante a Ingeniera Electrónica</h2>
+            <div class="contact-icons">
+            <img src="julia/tel-icon.svg" alt="Teléfono">
+            <img src="julia/github-icon.svg" alt="GitHub">
+            <img src="julia/mail-icon.svg" alt="Email">
+            <img src="julia/linkedin-icon.svg" alt="LinkedIn">
             </div>
         </div>
-    </header>
+        </header>
 
-    <main>
+        <!-- Perfil -->
         <section class="perfil">
-            <h3>Perfil</h3>
-            <p>¡Hola! Soy Julia Barrera, estudiante de la Escuela Técnica ORT Argentina, orientación en Informática con certificación en Tecnologías de la Información y las Comunicaciones. Me apasiona la electrónica, la programación y la combinación creativa para resolución de problemas.</p>
+        <h2>Perfil</h2>
+        <p>¡Hola! Soy Julia Barrera, estudiante de ORT Argentina, con orientación en Tecnologías de la Información y las Comunicaciones.</p>
+        <p>Me apasiona la electrónica, la programación y la combinación de la creatividad con resolución de problemas.</p>
         </section>
 
+        <!-- Próximo paso -->
         <section class="proximo-paso">
-            <h3>Proximo paso</h3>
-            <p>El próximo año comenzaré la carrera de Ingeniería Electrónica en la Universidad Tecnológica Nacional (UTN), con el objetivo de profundizar mis conocimientos en hardware, software y sistemas embebidos.</p>
+        <h2>Próximo paso</h2>
+        <p>El próximo año comenzaré la carrera de Ingeniería Electrónica en la Universidad Tecnológica Nacional (UTN), con el objetivo de profundizar mis conocimientos en hardware, software y sistemas embebidos.</p>
         </section>
 
+        <!-- Idiomas y formación -->
+        <section class="idiomas-formacion">
+        <div class="idiomas">
+            <h2>Idiomas</h2>
+            <div class="idioma">
+            <span>Español:</span>
+            <div class="barra" data-nivel="100"></div>
+            <span>Nativo</span>
+            </div>
+            <div class="idioma">
+            <span>Inglés:</span>
+            <div class="barra" data-nivel="85"></div>
+            <span>Avanzado</span>
+            </div>
+        </div>
+        <div class="formacion-complementaria">
+            <h2>Formación complementaria</h2>
+            <p>Curso de Programación y Reparación de Celulares - UTN (2025)</p>
+        </div>
+        </section>
+
+        <!-- Formación académica -->
         <section class="formacion">
-            <h3>Formación académica</h3>
-            <div class="education-item">
-                <h4>Escuela Técnica ORT N°2 - Sede Belgrano</h4>
-                <p>Bachiller en Informática con Certificación Jurisdiccional en Tecnologías de la Información y las Comunicaciones</p>
-                <p class="status">Cursando 5° año (Constancia de estudiante regular, agosto 2025)</p>
-            </div>
+        <h2>Formación académica</h2>
+        <p><strong>ORT Argentina</strong>, Bachiller en Informática con Certificación Jurisdiccional en Tecnologías de la Información y las Comunicaciones.</p>
         </section>
 
-        <section class="idiomas">
-            <h3>Idiomas</h3>
-            <div class="language-grid">
-                <div class="language">
-                    <span>Español:</span>
-                    <span>Nativo</span>
-                </div>
-                <div class="language">
-                    <span>Inglés:</span>
-                    <span>Avanzado(C1)</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="formacion-complementaria">
-            <h3>Formación complementaria</h3>
-            <div class="course">
-                <p>Curso de Programación y Reparación de Celulares - UTN (Eddis Educativa)</p>
-                <p class="certificate">Certificado emitido por la Universidad Tecnológica Nacional, sede CABA (2025)</p>
-            </div>
-        </section>
-
+        <!-- Habilidades blandas -->
         <section class="habilidades">
-            <h3>Habilidades blandas</h3>
-            <ul>
-                <li>Trabajo en equipo y colaboración.</li>
-                <li>Aprendizaje rápido y adaptación a nuevos desafíos.</li>
-                <li>Responsabilidad y compromiso.</li>
-                <li>Organización y enfoque en la resolución de problemas.</li>
-                <li>Experiencia en trabajo por proyectos (participación en tres proyectos escolares interdisciplinarios).</li>
-            </ul>
+        <h2>Habilidades blandas</h2>
+        <p>Trabajo en equipo, tenacidad, paciencia, buena locución, aprendizaje rápido, adaptación a nuevos desafíos, responsabilidad y compromiso, tranquilidad, experiencia en trabajo por proyectos, trato selectivo, enfoque, alta tolerancia a la presión, trabajo con foco.</p>
         </section>
 
+        <!-- Proyectos destacados -->
         <section class="proyectos">
-            <h3>Proyectos</h3>
-            <div class="project">
-                <h4>Tercer año - Primer año de TIC</h4>
-                <p>Desarrollamos un aromatizador automatizado de ambientes para los espacios escolares. Me encargué de la parte de hardware, conectando los componentes y controlando el sistema que regulaba la liberación del aroma. Fue mi primera experiencia aplicando electrónica a un proyecto real.</p>
-            </div>
-            <div class="project">
-                <h4>Cuarto año - Segundo año de TIC</h4>
-                <p>Creamos un videojuego animado en 2D y 3D, con historia y estilo de novela visual. Fui responsable del diseño 3D de los personajes y sus animaciones, aprendiendo sobre modelado, movimiento y narrativa visual.</p>
-            </div>
-            <div class="project">
-                <h4>Quinto año - Tercer año de TIC</h4>
-                <p>Actualmente estamos desarrollando Scorik, una herramienta web gratuita que transforma grabaciones de audio en partituras digitales editables. Está pensada para estudiantes, docentes y músicos que buscan facilitar la transcripción y la composición musical. Me encargo del análisis de datos musicales, donde el sistema separa los instrumentos y detecta las notas por tiempo. El objetivo del proyecto es permitir que cualquier persona convierta sus ideas sonoras en partituras, democratizando el acceso a la educación musical digital.</p>
-            </div>
+        <h2>Proyectos destacados</h2>
+
+        <div class="proyecto">
+            <h3>Tercer año - Primer año de TIC</h3>
+            <strong>Purifica Tic</strong>
+            <p>Es un aromatizador automatizado de ambientes para los espacios escolares.</p>
+            <p>Trabajé en el hardware, conectando los componentes y controlando el sistema de activación. Fue mi primera experiencia aplicando electrónica a un proyecto real.</p>
+        </div>
+
+        <div class="proyecto">
+            <h3>Cuarto año - Segundo año de TIC</h3>
+            <strong>Brick the fish</strong>
+            <p>Es un videojuego animado en 2D y 3D, con historia y estilo de novela visual.</p>
+            <p>Diseñé los personajes en 3D y realicé sus animaciones. Aprendí sobre modelado y animación 3D con aplicaciones profesionales.</p>
+        </div>
+
+        <div class="proyecto">
+            <h3>Quinto año - Tercer año de TIC</h3>
+            <strong>Scorik</strong>
+            <p>Es una herramienta web gratuita que transforma grabaciones de audio en partituras digitales editables.</p>
+            <p>Me encargo del análisis de datos musicales, separando los instrumentos y detectando las notas por tiempo. Me permitió saber más sobre programación, audio e instrumentos musicales.</p>
+        </div>
         </section>
+
     </main>
 </body>
 </html>
