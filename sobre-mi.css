@@ -1,29 +1,32 @@
 .sobre-mi-page {
   /* variables para controlar tamaño y posición del SVG de fondo */
     --svg-width: 1343px;
-    --svg-height: 768px;
-    --svg-left: calc(50% - var(--svg-width)/2);
-    --svg-top: 0;
+    --svg-left: -2px;
+    --svg-top: -3px;
 
-    min-height: 100vh;
     width: 100vw;
-    background-image: url("SVG facu/fondo sobre mi.svg");
+    background-image: url("SVG-facu/fondo-sobre-mi.svg");
     background-repeat: no-repeat;
-    background-size: var(--svg-width) var(--svg-height);
-    background-position: var(--svg-left) var(--svg-top);
-    background-color: #e3e3e3;
+    background-position: center top;
+    background-size: 100% auto;
+    background-color: rgba(30, 30, 30, 1);
+    
+    
     font-family: 'JetBrains Mono', monospace;
     color: #333;
     position: relative;
     padding: 2rem;
     box-sizing: border-box;
+
+    /*font-size: 17px;
+    line-height: 1.4;*/
 }
 
 .page-label {
     position: absolute;
     left: 180px;
     top: 12px;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #222;
     pointer-events: none;
@@ -39,12 +42,25 @@
     max-width: inherit;
 }
 
+.languages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.lang-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 .content-wrapper {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    gap: 2rem;
+    grid-template-columns: 1.3fr 2fr 1.5fr;
+    gap: 0.3rem;
     max-width: 1600px;
-    margin: 8rem auto 0;
+    margin: 4rem auto 0;
 }
 
 .col {
@@ -57,10 +73,15 @@
 
 .left-col .photo-container img {
     width: 100%;
-    max-width: 300px;
+    max-width: 500px;
     display: block;
     margin: 0 auto;
     border-radius: 8px;
+}
+
+
+.left-col {
+    max-width: 500px;
 }
 
 .photo-caption {
@@ -87,17 +108,32 @@ ul {
 }
 
 .lang-item {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* texto alineado a izquierda */
+    gap: 2px;
 }
 
 .lang-bar {
-    width: 100%;
-    height: 15px;
+    width: 200px;
+    height: 10px;
     background: #ddd;
-    border-radius: 7.5px;
+    border-radius: 4px;
     overflow: hidden;
     position: relative;
 }
+
+.lang-item span:first-child {
+    font-size: 0.95rem;
+    margin-bottom: 2px;
+}
+
+.lang-item span:last-child {
+    font-size: 0.9rem;
+    margin-top: 2px;
+}
+
 
 .lang-bar::after {
     content: '';
@@ -149,6 +185,6 @@ ul {
     }
 
     .col {
-        padding: 1.5rem;
+        padding: 0.5rem;
     }
 }
