@@ -1,0 +1,216 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    background-color: #1e1e1e;
+    color: #1b1b1b;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* CONTENEDOR GENERAL */
+.cv-julia {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* === HEADER === */
+.header {
+    display: flex;
+    background-color: #e49999;
+    padding: 0rem;
+    align-items: stretch;
+    justify-content: flex-start;
+    height: 300px;
+}
+
+.foto {
+    width: 250px;
+    height: 300px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+}
+
+.foto img {
+    width: 250px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 0;
+
+}
+
+.foto span {
+    font-size: 0.7rem;
+    color: white;
+    margin-top: 5px;
+
+}
+
+.info-header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30rem;
+}
+
+.info-header h1 {
+    font-family: 'Hachi Maru Pop', cursive; /* O la que vos elijas */
+    font-size: 2.8rem;
+    margin-bottom: 0.2rem;
+}
+
+.info-header h2 {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.contact-icons {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.contact-icons img {
+    width: 32px;
+    height: 32px;
+}
+
+/* === SECCIONES GENERALES === */
+section {
+    padding: 2rem;
+}
+
+.perfil {
+    background-color: #b48587;
+}
+
+.proximo-paso {
+    background-color: #368078;
+    color: #fff;
+}
+
+.formacion {
+    background-color: #dfa0a5;
+}
+
+.formacion-complementaria {
+    background-color: #dfa0a5;
+}
+
+.idiomas-formacion {
+    display: flex;
+    justify-content: space-between;
+    background-color: #dfa0a5;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
+.idiomas, .formacion-complementaria {
+    width: 48%;
+}
+
+/* Barras de idioma */
+.idioma {
+    margin-bottom: 1rem;
+}
+
+.barra {
+    width: 100%;
+    height: 6px;
+    background-color: #000;
+    margin: 4px 0;
+    position: relative;
+    border-radius: 3px;
+}
+
+.barra::after {
+    content: '';
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    width: 0;
+    border-radius: 3px;
+}
+
+.barra[data-nivel="100"]::after {
+    width: 100%;
+}
+.barra[data-nivel="85"]::after {
+    width: 85%;
+}   
+
+/* HABILIDADES */
+.habilidades {
+    background-color: #a97b7e;
+}
+
+/* PROYECTOS */
+.proyectos {
+    background-color: #c47978;
+}
+
+.proyecto {
+    margin-bottom: 2rem;
+}
+
+.proyecto h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.proyecto strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+/* TIPOGRAFÍA GENERAL */
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+    line-height: 1.6;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .info-header {
+        padding-left: 0;
+        margin-top: 1rem;
+    }
+
+    .idiomas, .formacion-complementaria {
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .contact-icons {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .foto img {
+        max-width: 120px;
+    }
+}
