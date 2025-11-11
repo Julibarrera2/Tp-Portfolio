@@ -1,15 +1,25 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #1e1e1e; 
+    height: 100%;
+}
+
 .sobre-mi-page {
   /* variables para controlar tamaño y posición del SVG de fondo */
     --svg-width: 1343px;
     --svg-left: -2px;
     --svg-top: -3px;
+    --svg-height: 760px;
 
     width: 100vw;
+    height: var(--svg-height);
     background-image: url("SVG-facu/fondo-sobre-mi.svg");
     background-repeat: no-repeat;
     background-position: center top;
-    background-size: 100% auto;
-    background-color: rgba(30, 30, 30, 1);
+    background-size: 1343px var(--svg-height);
+    background-color: rgb(17, 16, 16);
     
     
     font-family: 'JetBrains Mono', monospace;
@@ -18,21 +28,24 @@
     padding: 2rem;
     box-sizing: border-box;
 
-    /*font-size: 17px;
-    line-height: 1.4;*/
+    max-height: 800px;
+    min-height: 100vh; /* asegura que siempre ocupe el alto completo */
+    overflow: hidden;
+
 }
+
 
 .page-label {
     position: absolute;
     left: 180px;
     top: 12px;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
-    color: #222;
-    pointer-events: none;
+    color: #030303;
     z-index: 10;
     white-space: nowrap;
 }
+
 .center-col .languages {
     --text-max-width: 760px;
     max-width: var(--text-max-width);
@@ -40,6 +53,10 @@
 
 .center-col .languages .lang-item {
     max-width: inherit;
+}
+
+.intro {
+    margin-top: -1.2rem;
 }
 
 .languages {
@@ -61,6 +78,8 @@
     gap: 0.3rem;
     max-width: 1600px;
     margin: 4rem auto 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .col {
@@ -89,6 +108,9 @@
     margin-top: 0.5rem;
     font-size: 0.9rem;
     color: #555;
+
+    display: flex;
+    justify-content: center;
 }
 
 h2 {
@@ -113,6 +135,12 @@ ul {
     flex-direction: column;
     align-items: flex-start; /* texto alineado a izquierda */
     gap: 2px;
+}
+
+.interests {
+    width: 200%;             /* Le da más ancho del contenedor padre */
+    margin-left: -5%; 
+    margin-top: 80px;    /* Ajusta la posición para centrar visualmente */
 }
 
 .lang-bar {
@@ -156,6 +184,10 @@ ul {
     margin-top: 1rem;
 }
 
+.contact {
+    margin-top: 3rem; /* Aumentá este valor si querés más separación */
+}
+
 .icon-link img {
     width: 40px;
     height: 40px;
@@ -188,3 +220,4 @@ ul {
         padding: 0.5rem;
     }
 }
+
