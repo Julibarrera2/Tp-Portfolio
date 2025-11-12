@@ -26,12 +26,12 @@ body, html {
     padding: 0rem;
     align-items: stretch;
     justify-content: flex-start;
-    height: 300px;
+    height: 350px;
 }
 
 .foto {
     width: 250px;
-    height: 300px;
+    height: 350px;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -59,30 +59,52 @@ body, html {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding-left: 30rem;
+    justify-content: space-between;
+    align-self: center;
+    padding-left: 2rem;
+    padding-top: 40px;
 }
 
-.info-header h1 {
-    font-family: 'Hachi Maru Pop', cursive; /* O la que vos elijas */
-    font-size: 2.8rem;
-    margin-bottom: 0.2rem;
+.nombre {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+}
+.nombre h1 {
+    font-family: 'Hachi Maru Pop', cursive;
+    font-size: 80px;
+    margin-top: -50px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    transform: scaleY(1);
+    color: #2b2b2b;
+}
+
+.titulo-contacto {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .info-header h2 {
-    font-size: 1.3rem;
+    font-size: 33px;
     font-weight: 500;
+    margin-bottom: 20px; 
 }
 
 .contact-icons {
     display: flex;
-    gap: 1.2rem;
-    margin-top: 1rem;
+    gap: 2rem;
+    margin-top: 0;
 }
 
 .contact-icons img {
-    width: 32px;
-    height: 32px;
+    width: 85px;
+    height: 85px;
 }
 
 /* === SECCIONES GENERALES === */
