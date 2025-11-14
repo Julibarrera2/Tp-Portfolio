@@ -62,7 +62,6 @@ body, html {
     justify-content: space-between;
     align-self: center;
     padding-left: 2rem;
-    padding-top: 40px;
 }
 
 .nombre {
@@ -109,30 +108,31 @@ body, html {
 
 /* === SECCIONES GENERALES === */
 section {
-    padding: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 0.5rem;
 }
 
 .perfil {
-    background-color: #b48587;
+    background-color: #9c7075;
 }
 
 .proximo-paso {
-    background-color: #368078;
-    color: #fff;
+    background-color: #397c76;
 }
 
 .formacion {
-    background-color: #dfa0a5;
+    background-color: #ad7676;
 }
 
 .formacion-complementaria {
-    background-color: #dfa0a5;
+    background-color: #ad7676;
 }
 
 .idiomas-formacion {
     display: flex;
     justify-content: space-between;
-    background-color: #dfa0a5;
+    background-color: #ad7676;
     flex-wrap: wrap;
     padding: 2rem;
 }
@@ -175,12 +175,12 @@ section {
 
 /* HABILIDADES */
 .habilidades {
-    background-color: #a97b7e;
+    background-color: #936a6a;
 }
 
 /* PROYECTOS */
 .proyectos {
-    background-color: #c47978;
+    background-color: #c27777;
 }
 
 .proyecto {
