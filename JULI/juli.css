@@ -111,15 +111,68 @@ section {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.perfil_contenedor {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
 }
 
 .perfil {
     background-color: #9c7075;
+    margin-right: auto;
+    max-width: 900px;
+    max-height: auto;
+}
+
+.perfil h2 {
+    font-size: 3rem;
+    font-family: 'Judson', serif;
+}
+
+.perfil p {
+    font-size: 1.7rem;
+    font-family: 'Judson', serif;
+}
+
+.proximo-paso h2 {
+    font-size: 3rem;
+    font-family: 'Judson', serif;
+}
+
+.proximo-paso p {
+    font-size: 1.7rem;
+    font-family: 'Judson', serif;
 }
 
 .proximo-paso {
     background-color: #397c76;
+    max-height: 300px;
+    padding-bottom: 5rem;
 }
+
+.solo-idiomas {
+    background-color: #ad7676;
+    margin-top: 60px;
+    padding: 0rem;
+}
+
+h2, h3 {
+    font-family: 'Judson', serif;
+    font-weight: bold;
+    font-size: 2.2rem;
+}
+
+p, span {
+    font-family: 'Judson', serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #111;
+}
+
 
 .formacion {
     background-color: #ad7676;
@@ -144,6 +197,7 @@ section {
 /* Barras de idioma */
 .idioma {
     margin-bottom: 1rem;
+    padding: 0.2rem 2rem;
 }
 
 .barra {
