@@ -173,40 +173,53 @@ p, span {
     color: #111;
 }
 
-
-.formacion {
-    background-color: #ad7676;
-}
-
-.formacion-complementaria {
-    background-color: #ad7676;
-}
-
 .idiomas-formacion {
+    display: block;
+    background-color: #ad7676;
+    padding: 1rem;
+}
+
+.titulo-idiomas {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-family: 'Judson', serif;
+    margin-left: 335px;
+}
+
+.idiomas {
     display: flex;
     justify-content: space-between;
-    background-color: #ad7676;
-    flex-wrap: wrap;
-    padding: 2rem;
+    gap: 0.8rem;
 }
 
-.idiomas, .formacion-complementaria {
-    width: 48%;
+.idioma span:first-of-type {
+    font-family: 'Judson', serif;
+    font-size: 1.7rem;
+}
+
+.idioma span:last-of-type {
+    font-family: 'Judson', serif;
+    font-size: 1.7rem;
 }
 
 /* Barras de idioma */
 .idioma {
-    margin-bottom: 1rem;
-    padding: 0.2rem 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-family: 'Judson', serif;
+    font-size: 1.2rem;
 }
 
 .barra {
-    width: 100%;
-    height: 6px;
-    background-color: #000;
+    width: 200px;
+    height: 10px;
+    background-color: #fff;
     margin: 4px 0;
     position: relative;
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 .barra::after {
@@ -215,7 +228,7 @@ p, span {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #fff;
+    background-color: #000;
     width: 0;
     border-radius: 3px;
 }
@@ -226,6 +239,16 @@ p, span {
 .barra[data-nivel="85"]::after {
     width: 85%;
 }   
+
+.formacion-complementaria {
+    background-color: #ad7676;
+}
+
+.formacion {
+    background-color: #ad7676;
+    width: 100%;
+    height: 200px;
+}
 
 /* HABILIDADES */
 .habilidades {
