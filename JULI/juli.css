@@ -240,9 +240,11 @@ p, span {
     width: 85%;
 }   
 
-.formacion-complementaria {
+.formacion-complementaria-seccion {
     background-color: #ad7676;
+    padding: 1px;
 }
+
 
 .formacion {
     background-color: #ad7676;
