@@ -110,21 +110,22 @@ body, html {
 section {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
-
+/*PERFIL*/
 .perfil_contenedor {
     display: flex;
     justify-content: space-between;
     width: 100%;
     align-items: flex-start;
+    flex-direction: column;
 }
 
 .perfil {
     background-color: #9c7075;
     margin-right: auto;
-    max-width: 900px;
+    max-width: 1006px;
     max-height: auto;
 }
 
@@ -134,35 +135,36 @@ section {
 }
 
 .perfil p {
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-family: 'Judson', serif;
 }
 
+/*PROXIMO PASO*/
 .proximo-paso h2 {
     font-size: 3rem;
     font-family: 'Judson', serif;
 }
 
 .proximo-paso p {
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-family: 'Judson', serif;
 }
 
 .proximo-paso {
     background-color: #397c76;
     max-height: 300px;
-    padding-bottom: 5rem;
+    padding-bottom: 2.5rem;
 }
 
+/*IDIOMA*/
 .solo-idiomas {
     background-color: #ad7676;
-    margin-top: 60px;
+    margin-top: 00px;
     padding: 0rem;
 }
 
 h2, h3 {
     font-family: 'Judson', serif;
-    font-weight: bold;
     font-size: 2.2rem;
 }
 
@@ -172,13 +174,11 @@ p, span {
     line-height: 1.5;
     color: #111;
 }
-
 .idiomas-formacion {
     display: block;
     background-color: #ad7676;
     padding: 1rem;
 }
-
 .titulo-idiomas {
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -186,24 +186,20 @@ p, span {
     font-family: 'Judson', serif;
     margin-left: 335px;
 }
-
 .idiomas {
     display: flex;
     justify-content: space-between;
     gap: 0.8rem;
+    padding-left: 2rem;
 }
-
 .idioma span:first-of-type {
     font-family: 'Judson', serif;
-    font-size: 1.7rem;
+    font-size: 2rem;
 }
-
 .idioma span:last-of-type {
     font-family: 'Judson', serif;
-    font-size: 1.7rem;
+    font-size: 2rem;
 }
-
-/* Barras de idioma */
 .idioma {
     flex: 1;
     display: flex;
@@ -232,24 +228,70 @@ p, span {
     width: 0;
     border-radius: 3px;
 }
-
 .barra[data-nivel="100"]::after {
     width: 100%;
 }
 .barra[data-nivel="85"]::after {
     width: 85%;
 }   
+/*ORGANIZACION BLOQUES*/
+.contenido-central {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+}
 
+.bloque-izquierdo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.bloque-derecho {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: -300px;
+}
+
+/*FORMACION COMPLEMENTARIA*/
 .formacion-complementaria-seccion {
     background-color: #ad7676;
-    padding: 1px;
+    padding: 2rem 0.7rem;
 }
 
 
+.formacion-complementaria h2 {
+    font-family: 'Judson', serif;
+    font-size: 3rem;
+    color: #111;
+}
+
+.formacion-complementaria p {
+    font-family: 'Judson', serif;
+    font-size: 2rem;
+    color: #111;
+}
+
+/*FORMACION ACADEMICA*/
 .formacion {
     background-color: #ad7676;
     width: 100%;
-    height: 200px;
+    align-items: flex-start;
+    max-width: 1006px;
+    padding: 2.2rem;
+}
+
+.formacion h2 {
+    font-size: 3rem;
+    font-family: 'Judson', serif;
+    color: #111;
+}
+
+.formacion p {
+    font-size: 2rem;
+    font-family: 'Judson', serif;
+    color: #111;
 }
 
 /* HABILIDADES */
@@ -257,25 +299,107 @@ p, span {
     background-color: #936a6a;
 }
 
+.habilidades h2 {
+    font-size: 3rem;
+    font-family: 'Judson', serif;
+    margin-bottom: 1rem;
+    color: #111;
+    margin-left: 50px;
+}
+
+.habilidades p {
+    font-family: 'Judson', serif;
+    font-size: 2rem;
+    color: #111;
+    margin-left: 50px;
+}
+
+
 /* PROYECTOS */
 .proyectos {
     background-color: #c27777;
 }
 
-.proyecto {
+.proyectos h2 {
+    font-size: 3rem;
+    font-family: 'Judson', serif;
+    color: #111;
     margin-bottom: 2rem;
+    margin-left: 50px;
+}
+
+.proyecto {
+    margin-bottom: 3rem;
+    margin-left: 50px;
 }
 
 .proyecto h3 {
-    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+} 
+
+.proyecto-header {
+    margin-bottom: 2rem;
+}
+
+.proyecto-contenido {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.proyecto-header {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.proyecto-contenido {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.proyecto-img {
+    width: 270px;
+    height: auto;
+    flex-shrink: 0;
+    align-self: flex-start;
+    margin-top: 0.2rem;
+}
+
+.proyecto-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-self: flex-end; 
+}
+
+.proyecto-info strong {
+    font-size: 2rem;
+    font-family: 'Judson', serif;
+    color: #111;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.proyecto-info p {
+    font-size: 2rem;
+    font-family: 'Judson', serif;
+    color: #111;
+    line-height: 1.6;
     margin-bottom: 0.5rem;
 }
 
-.proyecto strong {
-    display: block;
-    font-size: 1.1rem;
-    margin-bottom: 0.3rem;
+.proyecto-detalle p {
+    font-size: 2rem;
+    font-family: 'Judson', serif;
+    color: #111;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
 }
+
 
 /* TIPOGRAFÍA GENERAL */
 h2 {
@@ -288,6 +412,8 @@ p {
     margin-bottom: 0.7rem;
     line-height: 1.6;
 }
+
+
 
 /* RESPONSIVO */
 @media (max-width: 768px) {
