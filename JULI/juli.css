@@ -108,8 +108,8 @@ body, html {
 
 /* === SECCIONES GENERALES === */
 section {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
@@ -152,7 +152,7 @@ section {
 
 .proximo-paso {
     background-color: #397c76;
-    max-height: 300px;
+    max-height: 340px;
     padding-bottom: 2.5rem;
 }
 
@@ -251,7 +251,7 @@ p, span {
     flex: 1;
     display: flex;
     flex-direction: column;
-    margin-left: -300px;
+    margin-left: -4px;
 }
 
 /*FORMACION COMPLEMENTARIA*/
@@ -279,7 +279,7 @@ p, span {
     width: 100%;
     align-items: flex-start;
     max-width: 1006px;
-    padding: 2.2rem;
+    padding: 1rem;
 }
 
 .formacion h2 {
